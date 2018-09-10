@@ -22,6 +22,9 @@ stage('PUSHDOCKERIMAGE') {
        }
 	   sh 'docker push kasapoorna5/kpc'
 	   }
+	   stage('RUNCONTAINER') {
+     sh 'docker run -p 8081:8080 -d kasapoorna5/kpc'
+}
 }
 
 
