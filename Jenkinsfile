@@ -21,6 +21,7 @@ stage('PUSHDOCKERIMAGE') {
         sh "docker login -u kasapoorna5 -p ${password1}"  
        }
 	   sh 'docker push kasapoorna5/kpc'
+	   }
 }
 
 
