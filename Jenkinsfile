@@ -14,6 +14,13 @@ stage('ARCHIVE') {
 }
 
 stage('DOCKERIMAGE') {
-     sh 'docker build -t kasapoorna5/poorna1:1.0 .'
+     sh 'docker build -t kasapoorna5/kpc .'
 }
+stage('PUSHDOCKERIMAGE') {
+       withCredentials([string(credentialsId: 'docker-pwd', variable: 'password1')]) {
+        sh "docker login -u kasapoorna5 -p ${password1}"  
+       }
+	   sh 'docker push kasapoorna5/kpc'
 }
+
+
