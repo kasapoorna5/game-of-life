@@ -28,7 +28,7 @@ stage('RUNCONTAINER') {
 	
 stage('RUNCONTAINERONDEV') {
 	sshagent(['dev']) {
-		def dockerrun= 'docker run -p 8082:8080 -d kasapoorna5/kpc:3.0
+		def dockerrun= 'docker run -p 8082:8080 -d kasapoorna5/kpc:3.0'
 		sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.27.236 ${dockerrun}"
 }
 
