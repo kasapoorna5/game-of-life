@@ -23,12 +23,12 @@ stage('PUSHDOCKERIMAGE') {
 	   sh 'docker push kasapoorna5/kpc:4.0'
      }
 stage('RUNCONTAINER') {
-   sh 'docker run -p 8082:8080 -d kasapoorna5/kpc:4.0'
+   sh 'docker run -p 8083:8080 -d kasapoorna5/kpc:4.0'
 }
 	
 stage('RUNCONTAINERONDEV') {
 	sshagent(['dev']) {
-		def dockerrun= 'docker run -p 8082:8080 -d kasapoorna5/kpc:4.0'
+		def dockerrun= 'docker run -p 8083:8080 -d kasapoorna5/kpc:4.0'
 		sh "ssh -o StrictHostKeyChecking=no ubuntu@172.31.27.236 ${dockerrun}"
 }
 
